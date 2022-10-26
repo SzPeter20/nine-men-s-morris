@@ -24,5 +24,11 @@ namespace Mills
             player1_name = player1name;
             player2_name = player2name;
         }
+
+        private void Game_Area_Load(object sender, EventArgs e)
+        {
+            User player1 = new User(player1_name, 9);
+            User player2 = new User(player2_name, 9);
+        }
     }
 }

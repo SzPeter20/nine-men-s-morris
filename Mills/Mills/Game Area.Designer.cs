@@ -29,10 +29,18 @@ namespace Mills
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Game_Area
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Game_Area";
             this.Text = "Game_Area";
+            this.Load += new System.EventHandler(this.Game_Area_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -9,8 +9,8 @@ namespace Mills
     class User
     {
         public string Name { get; set; }
-        public string Discnum { get; set; }
-        public User(string name, string discnum)
+        public int Discnum { get; set; }
+        public User(string name, int discnum)
         {
             Name = name;
             Discnum = discnum;

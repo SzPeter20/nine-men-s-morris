@@ -48,5 +48,10 @@ namespace Mills
             uj.atadas(player1, player2);
             uj.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
