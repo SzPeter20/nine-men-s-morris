@@ -34,6 +34,7 @@ namespace Mills
             this.txtbx_player_2_name = new System.Windows.Forms.TextBox();
             this.txtbx_player_1_name = new System.Windows.Forms.TextBox();
             this.chbx_fly = new System.Windows.Forms.CheckBox();
+            this.str_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,11 +80,22 @@ namespace Mills
             this.chbx_fly.UseVisualStyleBackColor = true;
             this.chbx_fly.CheckedChanged += new System.EventHandler(this.chbx_fly_CheckedChanged);
             // 
+            // str_btn
+            // 
+            this.str_btn.Location = new System.Drawing.Point(190, 172);
+            this.str_btn.Name = "str_btn";
+            this.str_btn.Size = new System.Drawing.Size(75, 23);
+            this.str_btn.TabIndex = 5;
+            this.str_btn.Text = "START";
+            this.str_btn.UseVisualStyleBackColor = true;
+            this.str_btn.Click += new System.EventHandler(this.str_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 207);
+            this.Controls.Add(this.str_btn);
             this.Controls.Add(this.chbx_fly);
             this.Controls.Add(this.txtbx_player_1_name);
             this.Controls.Add(this.txtbx_player_2_name);
@@ -103,6 +115,7 @@ namespace Mills
         private System.Windows.Forms.TextBox txtbx_player_2_name;
         private System.Windows.Forms.TextBox txtbx_player_1_name;
         private System.Windows.Forms.CheckBox chbx_fly;
+        private System.Windows.Forms.Button str_btn;
     }
 }
 

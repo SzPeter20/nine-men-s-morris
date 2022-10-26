@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Mills
 {
+    
     public partial class Game_Area : Form
     {
+        static string player1_name;
+        static string player2_name;
         public Game_Area()
         {
             InitializeComponent();
+        }
+        public void atadas(string player1name, string player2name)
+        {
+            player1_name = player1name;
+            player2_name = player2name;
         }
     }
 }
