@@ -40,7 +40,7 @@ namespace Mills
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 69);
+            this.label1.Location = new System.Drawing.Point(50, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace Mills
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 108);
+            this.label2.Location = new System.Drawing.Point(50, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 1;
@@ -57,14 +57,14 @@ namespace Mills
             // 
             // txtbx_player_2_name
             // 
-            this.txtbx_player_2_name.Location = new System.Drawing.Point(126, 105);
+            this.txtbx_player_2_name.Location = new System.Drawing.Point(120, 84);
             this.txtbx_player_2_name.Name = "txtbx_player_2_name";
             this.txtbx_player_2_name.Size = new System.Drawing.Size(100, 20);
             this.txtbx_player_2_name.TabIndex = 2;
             // 
             // txtbx_player_1_name
             // 
-            this.txtbx_player_1_name.Location = new System.Drawing.Point(126, 66);
+            this.txtbx_player_1_name.Location = new System.Drawing.Point(120, 45);
             this.txtbx_player_1_name.Name = "txtbx_player_1_name";
             this.txtbx_player_1_name.Size = new System.Drawing.Size(100, 20);
             this.txtbx_player_1_name.TabIndex = 3;
@@ -72,7 +72,7 @@ namespace Mills
             // chbx_fly
             // 
             this.chbx_fly.AutoSize = true;
-            this.chbx_fly.Location = new System.Drawing.Point(300, 88);
+            this.chbx_fly.Location = new System.Drawing.Point(294, 67);
             this.chbx_fly.Name = "chbx_fly";
             this.chbx_fly.Size = new System.Drawing.Size(86, 17);
             this.chbx_fly.TabIndex = 4;
@@ -82,7 +82,7 @@ namespace Mills
             // 
             // str_btn
             // 
-            this.str_btn.Location = new System.Drawing.Point(190, 172);
+            this.str_btn.Location = new System.Drawing.Point(130, 110);
             this.str_btn.Name = "str_btn";
             this.str_btn.Size = new System.Drawing.Size(75, 23);
             this.str_btn.TabIndex = 5;
@@ -94,7 +94,7 @@ namespace Mills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 207);
+            this.ClientSize = new System.Drawing.Size(392, 164);
             this.Controls.Add(this.str_btn);
             this.Controls.Add(this.chbx_fly);
             this.Controls.Add(this.txtbx_player_1_name);
