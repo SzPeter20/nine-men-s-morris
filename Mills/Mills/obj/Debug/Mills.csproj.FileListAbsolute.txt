@@ -1,0 +1,11 @@
+D:\git4\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.exe.config
+D:\git4\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.exe
+D:\git4\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.pdb
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csprojAssemblyReference.cache
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Form1.resources
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Game_Area.resources
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Properties.Resources.resources
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.GenerateResource.cache
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.CoreCompileInputs.cache
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.exe
+D:\git4\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.pdb

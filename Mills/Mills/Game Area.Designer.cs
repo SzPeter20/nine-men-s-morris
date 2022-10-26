@@ -38,6 +38,7 @@ namespace Mills
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Game_Area";
             this.Text = "Game_Area";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_Area_FormClosing);
             this.Load += new System.EventHandler(this.Game_Area_Load);
             this.ResumeLayout(false);
 

@@ -30,5 +30,10 @@ namespace Mills
             User player1 = new User(player1_name, 9);
             User player2 = new User(player2_name, 9);
         }
+
+        private void Game_Area_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
