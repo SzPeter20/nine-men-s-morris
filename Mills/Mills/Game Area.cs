@@ -16,5 +16,20 @@ namespace Mills
         {
             InitializeComponent();
         }
+
+        private void Game_Area_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Game_Area_Load(object sender, EventArgs e)
+        {
+            generatemap();
+        }
+
+        private void generatemap()
+        {
+            
+        }
     }
 }

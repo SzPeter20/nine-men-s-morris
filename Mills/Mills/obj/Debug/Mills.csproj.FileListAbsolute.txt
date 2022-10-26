@@ -1,0 +1,11 @@
+D:\Git\Mills\Mills\Mills\bin\Debug\Mills.exe.config
+D:\Git\Mills\Mills\Mills\bin\Debug\Mills.exe
+D:\Git\Mills\Mills\Mills\bin\Debug\Mills.pdb
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.csprojAssemblyReference.cache
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.Form1.resources
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.Game_Area.resources
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.Properties.Resources.resources
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.csproj.GenerateResource.cache
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.csproj.CoreCompileInputs.cache
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.exe
+D:\Git\Mills\Mills\Mills\obj\Debug\Mills.pdb
