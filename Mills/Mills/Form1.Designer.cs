@@ -94,6 +94,7 @@ namespace Mills
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(392, 164);
             this.Controls.Add(this.str_btn);
             this.Controls.Add(this.chbx_fly);
@@ -101,6 +102,10 @@ namespace Mills
             this.Controls.Add(this.txtbx_player_2_name);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.HelpButton = true;
+            this.MaximumSize = new System.Drawing.Size(408, 203);
+            this.MinimumSize = new System.Drawing.Size(408, 203);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

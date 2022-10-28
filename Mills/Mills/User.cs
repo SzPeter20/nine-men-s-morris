@@ -10,10 +10,12 @@ namespace Mills
     {
         public string Name { get; set; }
         public int Discnum { get; set; }
-        public User(string name, int discnum)
+        public string Color { get; set; }
+        public User(string name, int discnum, string color)
         {
             Name = name;
             Discnum = discnum;
+            Color = color;
         }
     }
 }
