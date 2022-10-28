@@ -35,12 +35,13 @@ namespace Mills
             this.txtbx_player_2_name = new System.Windows.Forms.TextBox();
             this.txtbx_player_1_name = new System.Windows.Forms.TextBox();
             this.chbx_fly = new System.Windows.Forms.CheckBox();
+            this.btn_start = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 45);
+            this.label1.Location = new System.Drawing.Point(64, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +50,7 @@ namespace Mills
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 84);
+            this.label2.Location = new System.Drawing.Point(64, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 1;
@@ -57,14 +58,14 @@ namespace Mills
             // 
             // txtbx_player_2_name
             // 
-            this.txtbx_player_2_name.Location = new System.Drawing.Point(132, 81);
+            this.txtbx_player_2_name.Location = new System.Drawing.Point(147, 81);
             this.txtbx_player_2_name.Name = "txtbx_player_2_name";
             this.txtbx_player_2_name.Size = new System.Drawing.Size(100, 20);
             this.txtbx_player_2_name.TabIndex = 2;
             // 
             // txtbx_player_1_name
             // 
-            this.txtbx_player_1_name.Location = new System.Drawing.Point(132, 42);
+            this.txtbx_player_1_name.Location = new System.Drawing.Point(147, 42);
             this.txtbx_player_1_name.Name = "txtbx_player_1_name";
             this.txtbx_player_1_name.Size = new System.Drawing.Size(100, 20);
             this.txtbx_player_1_name.TabIndex = 3;
@@ -80,11 +81,22 @@ namespace Mills
             this.chbx_fly.UseVisualStyleBackColor = true;
             this.chbx_fly.CheckedChanged += new System.EventHandler(this.chbx_fly_CheckedChanged);
             // 
+            // btn_start
+            // 
+            this.btn_start.Location = new System.Drawing.Point(157, 131);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_start.TabIndex = 5;
+            this.btn_start.Text = "Start";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 166);
+            this.Controls.Add(this.btn_start);
             this.Controls.Add(this.chbx_fly);
             this.Controls.Add(this.txtbx_player_1_name);
             this.Controls.Add(this.txtbx_player_2_name);
@@ -110,6 +122,7 @@ namespace Mills
         private System.Windows.Forms.TextBox txtbx_player_2_name;
         private System.Windows.Forms.TextBox txtbx_player_1_name;
         private System.Windows.Forms.CheckBox chbx_fly;
+        private System.Windows.Forms.Button btn_start;
     }
 }
 

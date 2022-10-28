@@ -42,5 +42,33 @@ namespace Mills
         {
             Application.Exit();
         }
+
+        
+
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            if (txtbx_player_1_name.Text=="")
+            {
+                player_1_name = "Player 1";
+            }
+            else
+            {
+                player_1_name = txtbx_player_1_name.Text;
+            }
+            if (txtbx_player_2_name.Text == "")
+            {
+                player_2_name = "Player 2";
+            }
+            else
+            {
+                player_2_name = txtbx_player_2_name.Text;
+            }
+
+
+            Game_Area uj = new Game_Area();
+            this.Hide();
+            uj.Player_nevek(player_1_name, player_2_name);
+            uj.Show();
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Mills
 {
     public partial class Game_Area : Form
     {
+        static List<Pont> empty = new List<Pont>();
         public Game_Area()
         {
             InitializeComponent();
@@ -30,6 +31,11 @@ namespace Mills
         private void generatemap()
         {
             
+        }
+        public void Player_nevek(string player1,string player2)
+        {
+            Player playerone = new Player(player1, 9,0, "CornflowerBlue");
+            Player playertwo = new Player(player2, 9,0, "HotPink");
         }
     }
 }

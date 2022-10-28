@@ -58,6 +58,8 @@
     <Compile Include="Game Area.Designer.cs">
       <DependentUpon>Game Area.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
+    <Compile Include="Pont.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
