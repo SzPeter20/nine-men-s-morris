@@ -12,7 +12,7 @@ namespace Mills
 {
     public partial class Game_Area : Form
     {
-        static int labelsize = 20;
+        static int labelsize = 17;
         static List<Pont> empty = new List<Pont>();
         static List<Pont> midring = new List<Pont>();
         static List<Pont> outerring = new List<Pont>();
@@ -38,6 +38,17 @@ namespace Mills
             outerringgeneration();
             midringgeneration();
             innerringgeneration();
+            pictureBox1.SendToBack();
+            pontgeneration();
+        }
+
+        private void pontgeneration()
+        {
+            int limit = midring.Count + outerring.Count + innerring.Count;
+            for (int i = 0; i < limit; i++)
+            {
+
+            }
         }
 
         private void innerringgeneration()
@@ -47,37 +58,40 @@ namespace Mills
             for (int i = 0; i < 8; i++)
             {
                 Label newlabel = new Label();
-                newlabel.Width = labelsize;
-                newlabel.Height = labelsize;
+                newlabel.Width = labelsize+2;
+                newlabel.Height = labelsize+2;
                 if (i <= 2)
                 {
-                    newlabel.Location = new Point(x + labelsize + 50, y);
+                    newlabel.Location = new Point(x + labelsize+2 + 50, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 2 && i <= 4)
                 {
-                    newlabel.Location = new Point(x, y + labelsize + 50);
+                    newlabel.Location = new Point(x, y + labelsize+2 + 50);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 4 && i <= 6)
                 {
-                    newlabel.Location = new Point(x - 50 - labelsize, y);
+                    newlabel.Location = new Point(x - 50 - labelsize+2, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i == 7)
                 {
-                    newlabel.Location = new Point(x, y - 50 - labelsize);
+                    newlabel.Location = new Point(x, y - 50 - labelsize+2);
                 }
-                newlabel.BackColor = Color.Gray;
-                newlabel.BorderStyle = BorderStyle.FixedSingle;
+                newlabel.BackColor = Color.Black;
                 newlabel.Name = "outer_" + i;
                 newlabel.Text = "";
                 newlabel.AutoSize = false;
                 newlabel.TextAlign = ContentAlignment.MiddleCenter;
                 newlabel.Click += new EventHandler(Kattintas);
+                for (int j = 0; j < 10; j++)
+                {
+                    newlabel.BringToFront();
+                }
                 this.Controls.Add(newlabel);
                 labelek.Add(newlabel);
             }
@@ -85,42 +99,45 @@ namespace Mills
 
         private void midringgeneration()
         {
-            int x = 212;
-            int y = 110;
+            int x = 150;
+            int y = 80;
             for (int i = 0; i < 8; i++)
             {
                 Label newlabel = new Label();
-                newlabel.Width = labelsize;
-                newlabel.Height = labelsize;
+                newlabel.Width = labelsize+2;
+                newlabel.Height = labelsize+2;
                 if (i <= 2)
                 {
-                    newlabel.Location = new Point(x + labelsize + 100, y);
+                    newlabel.Location = new Point(x + labelsize+2 + 130, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 2 && i <= 4)
                 {
-                    newlabel.Location = new Point(x, y + labelsize + 100);
+                    newlabel.Location = new Point(x, y + labelsize+2 + 130);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 4 && i <= 6)
                 {
-                    newlabel.Location = new Point(x - 100 - labelsize, y);
+                    newlabel.Location = new Point(x - 130 - labelsize+2, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i == 7)
                 {
-                    newlabel.Location = new Point(x, y - 100 - labelsize);
+                    newlabel.Location = new Point(x, y - 130 - labelsize+2);
                 }
-                newlabel.BackColor = Color.Gray;
-                newlabel.BorderStyle = BorderStyle.FixedSingle;
+                newlabel.BackColor = Color.Black;
                 newlabel.Name = "outer_" + i;
                 newlabel.Text = "";
                 newlabel.AutoSize = false;
                 newlabel.TextAlign = ContentAlignment.MiddleCenter;
                 newlabel.Click += new EventHandler(Kattintas);
+                for (int j = 0; j < 10; j++)
+                {
+                    newlabel.BringToFront();
+                }
                 this.Controls.Add(newlabel);
                 labelek.Add(newlabel);
             }
@@ -133,37 +150,41 @@ namespace Mills
             for (int i = 0; i < 8; i++)
             {
                 Label newlabel = new Label();
-                newlabel.Width = labelsize;
-                newlabel.Height = labelsize;
+                newlabel.Width = labelsize+2;
+                newlabel.Height = labelsize+2;
                 if (i <= 2)
                 {
-                    newlabel.Location = new Point(x + labelsize + 200, y);
+                    newlabel.Location = new Point(x + labelsize+2 + 200, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 2 && i <= 4)
                 {
-                    newlabel.Location = new Point(x, y + labelsize + 200);
+                    newlabel.Location = new Point(x, y + labelsize+2 + 200);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i > 4 && i <= 6)
                 {
-                    newlabel.Location = new Point(x - 200 - labelsize, y);
+                    newlabel.Location = new Point(x - 200 - labelsize+2, y);
                     x = newlabel.Location.X;
                     y = newlabel.Location.Y;
                 }
                 else if (i == 7)
                 {
-                    newlabel.Location = new Point(x, y - 200 - labelsize);
+                    newlabel.Location = new Point(x, y - 200 - labelsize+2);
                 }
-                newlabel.BackColor = Color.Gray;
-                newlabel.BorderStyle = BorderStyle.FixedSingle;
+                newlabel.BackColor = Color.Black;
                 newlabel.Name = "outer_" + i;
                 newlabel.Text = "";
                 newlabel.AutoSize = false;
                 newlabel.TextAlign = ContentAlignment.MiddleCenter;
                 newlabel.Click += new EventHandler(Kattintas);
+                for (int j = 0; j < 10; j++)
+                {
+                    newlabel.BringToFront();
+                }
+                
                 this.Controls.Add(newlabel);
                 labelek.Add(newlabel);
             }
