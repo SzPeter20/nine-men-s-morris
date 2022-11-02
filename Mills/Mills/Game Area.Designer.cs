@@ -70,18 +70,16 @@ namespace Mills
             this.Player1_LBL.AutoSize = true;
             this.Player1_LBL.Location = new System.Drawing.Point(380, 12);
             this.Player1_LBL.Name = "Player1_LBL";
-            this.Player1_LBL.Size = new System.Drawing.Size(42, 13);
+            this.Player1_LBL.Size = new System.Drawing.Size(0, 13);
             this.Player1_LBL.TabIndex = 3;
-            this.Player1_LBL.Text = "Player1";
             // 
             // Player2_LBL
             // 
             this.Player2_LBL.AutoSize = true;
             this.Player2_LBL.Location = new System.Drawing.Point(380, 43);
             this.Player2_LBL.Name = "Player2_LBL";
-            this.Player2_LBL.Size = new System.Drawing.Size(35, 13);
+            this.Player2_LBL.Size = new System.Drawing.Size(0, 13);
             this.Player2_LBL.TabIndex = 4;
-            this.Player2_LBL.Text = "label4";
             // 
             // Game_Area
             // 
