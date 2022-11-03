@@ -12,7 +12,7 @@ namespace Mills
         public string Contain { get; set; }
         public List<Pont> Neighbors = new List<Pont>();
 
-        public Pont(string name, List<Pont> neighbors,string contain)
+        public Pont(string name, string contain, List<Pont> neighbors)
         {
             Name = name;
             Contain = contain;

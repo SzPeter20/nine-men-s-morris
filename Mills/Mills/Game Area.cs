@@ -44,11 +44,26 @@ namespace Mills
 
         private void pontgeneration()
         {
-            int limit = midring.Count + outerring.Count + innerring.Count;
-            for (int i = 0; i < limit; i++)
+            List<Pont> helper_szomszed = new List<Pont>();
+            
+            for (int i = 0; i < labelek.Count/3; i++)
+            {
+                midring.Add( new Pont( "midring_" + i,"Nothing",empty));
+            }
+            for (int i = 0; i < labelek.Count / 3; i++)
+            {
+                midring.Add(new Pont("outerring_" + i, "Nothing", empty));
+            }
+            for (int i = 0; i < labelek.Count / 3; i++)
+            {
+                midring.Add(new Pont("innerring_" + i, "Nothing", empty));
+            }
+            for (int i = 0; i < outerring.Count; i++)
             {
 
             }
+
+
         }
 
         private void innerringgeneration()
