@@ -52,18 +52,42 @@ namespace Mills
             }
             for (int i = 0; i < labelek.Count / 3; i++)
             {
-                midring.Add(new Pont("outerring_" + i, "Nothing", empty));
+                outerring.Add(new Pont("outerring_" + i, "Nothing", empty));
             }
             for (int i = 0; i < labelek.Count / 3; i++)
             {
-                midring.Add(new Pont("innerring_" + i, "Nothing", empty));
+                innerring.Add(new Pont("innerring_" + i, "Nothing", empty));
             }
+            neighbouring(helper_szomszed);
+            
+
+
+        }
+
+        private void neighbouring(List<Pont> help,)
+        {
             for (int i = 0; i < outerring.Count; i++)
             {
+                if (i == 0)
+                {
+                    helper_szomszed.Add(outerring[i + 1]);
+                    helper_szomszed.Add(outerring[outerring.Count]);
+                }
+                if (i % 2 == 0 && i != 8)
+                {
+                    helper_szomszed.Add(outerring[i + 1]);
+                    helper_szomszed.Add(outerring[i - 1]);
+                    helper_szomszed.Add(midring[i]);
 
+                }
+                if (i == 8)
+                {
+                    helper_szomszed.Add(outerring[0]);
+                    helper_szomszed.Add(outerring[i - 1]);
+                    helper_szomszed.Add(midring[midring.Count]);
+                }
+                outerring[i].Neighbors = helper_szomszed;
             }
-
-
         }
 
         private void innerringgeneration()
