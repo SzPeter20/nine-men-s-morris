@@ -12,6 +12,10 @@ namespace Mills
 {
     public partial class Game_Area : Form
     {
+        static int moving = 0;
+        static Player playerone;
+        static Player playertwo;
+        static int currentturn = 0;
         static int labelsize = 17;
         static List<Pont> empty = new List<Pont>();
         static List<Pont> midring = new List<Pont>();
@@ -35,58 +39,78 @@ namespace Mills
 
         private void generatemap()
         {
+            pontgeneration();
             outerringgeneration();
             midringgeneration();
             innerringgeneration();
             pictureBox1.SendToBack();
-            pontgeneration();
+            
+            turns();
+        }
+
+        private void turns()
+        {
+            Random velet = new Random();
+            int decide = velet.Next(0, 101);
+            if (decide > 50)
+            {
+                currentturn = 1;
+                playerone.Color = Color.HotPink;
+                playertwo.Color = Color.CornflowerBlue;
+            }
+            else
+            {
+                currentturn = 2;
+                playertwo.Color = Color.HotPink;
+                playerone.Color = Color.CornflowerBlue;
+            }
         }
 
         private void pontgeneration()
         {
             List<Pont> helper_szomszed = new List<Pont>();
             
-            for (int i = 0; i < labelek.Count/3; i++)
+            for (int i = 0; i < 8; i++)
             {
                 midring.Add( new Pont( "midring_" + i,"Nothing",empty));
             }
-            for (int i = 0; i < labelek.Count / 3; i++)
+            for (int i = 0; i < 8; i++)
             {
                 outerring.Add(new Pont("outerring_" + i, "Nothing", empty));
             }
-            for (int i = 0; i < labelek.Count / 3; i++)
+            for (int i = 0; i < 8; i++)
             {
                 innerring.Add(new Pont("innerring_" + i, "Nothing", empty));
             }
-            neighbouring(helper_szomszed);
-            
-
+            neighbouring(helper_szomszed,outerring,midring);
+            neighbouring(helper_szomszed, innerring, midring);
+            neighbouring(helper_szomszed, midring, outerring);
+            neighbouring(helper_szomszed, midring, innerring);
 
         }
 
-        private void neighbouring(List<Pont> help,)
+        private void neighbouring(List<Pont> help, List<Pont> van, List<Pont> masik)
         {
-            for (int i = 0; i < outerring.Count; i++)
+            for (int i = 0; i < van.Count; i++)
             {
                 if (i == 0)
                 {
-                    helper_szomszed.Add(outerring[i + 1]);
-                    helper_szomszed.Add(outerring[outerring.Count]);
+                    help.Add(van[i + 1]);
+                    help.Add(van[van.Count-1]);
                 }
-                if (i % 2 == 0 && i != 8)
+                if (i==1||i==3||i==5 )
                 {
-                    helper_szomszed.Add(outerring[i + 1]);
-                    helper_szomszed.Add(outerring[i - 1]);
-                    helper_szomszed.Add(midring[i]);
-
+                    help.Add(van[i+1]);
+                    help.Add(van[i - 1]);
+                    help.Add(masik[i]);
                 }
-                if (i == 8)
+                if (i == 7)
                 {
-                    helper_szomszed.Add(outerring[0]);
-                    helper_szomszed.Add(outerring[i - 1]);
-                    helper_szomszed.Add(midring[midring.Count]);
+                    help.Add(van[0]);
+                    help.Add(van[i - 1]);
+                    help.Add(masik[masik.Count-1]);
                 }
-                outerring[i].Neighbors = helper_szomszed;
+                van[i].Neighbors = help;
             }
         }
 
@@ -231,13 +255,51 @@ namespace Mills
 
         private void Kattintas(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Label kattintottLabel = sender as Label;
+            if (currentturn==1)
+            {
+                if (playerone.Piececount > 0)
+                {
+                    if (kattintottLabel.Text == "")
+                    {
+                        kattintottLabel.Text = "1";
+                        kattintottLabel.BackColor = playerone.Color;
+                        kattintottLabel.ForeColor = playerone.Color;
+                        playerone.Piececount--;
+                        playerone.Onmappieces++;
+                        currentturn = 2;
+                    }
+
+                }
+                else if (kattintottLabel.Text == "1"&&moving==0)
+                {
+                    moving = 1;
+                }
+                
+            }
+            else if (currentturn == 2)
+            {
+                if (playertwo.Piececount > 0 && kattintottLabel.Text == "")
+                {
+                    kattintottLabel.Text = "2";
+                    kattintottLabel.BackColor = playertwo.Color;
+                    kattintottLabel.ForeColor = playertwo.Color;
+                    playertwo.Piececount--;
+                    playertwo.Onmappieces++;
+                    currentturn = 1;
+                }
+            }
+
+
+
+
+
         }
 
         public void Player_nevek(string player1,string player2)
         {
-            Player playerone = new Player(player1, 9,0, "CornflowerBlue");
-            Player playertwo = new Player(player2, 9,0, "HotPink");
+            playerone = new Player(player1, 9,0, Color.CornflowerBlue);
+            playertwo = new Player(player2, 9,0, Color.HotPink);
         }
     }
 }
