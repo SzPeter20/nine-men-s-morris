@@ -255,10 +255,12 @@ namespace Mills
 
         private void Kattintas(object sender, EventArgs e)
         {
+
+            Label mozgatannivalo=new Label();
             Label kattintottLabel = sender as Label;
             if (currentturn==1)
             {
-                if (playerone.Piececount > 0)
+                if (playerone.Piececount > 0 && moving == 0)
                 {
                     if (kattintottLabel.Text == "")
                     {
@@ -274,10 +276,19 @@ namespace Mills
                 else if (kattintottLabel.Text == "1"&&moving==0)
                 {
                     moving = 1;
+                    mozgatannivalo = kattintottLabel;
+                    kattintottLabel.BorderStyle= BorderStyle.FixedSingle;
+                }
+                if (moving==1&&kattintottLabel.Text=="")
+                {
+                    kattintottLabel.BackColor = mozgatannivalo.BackColor;
+                    kattintottLabel.ForeColor = mozgatannivalo.ForeColor;
+                    kattintottLabel.Text = mozgatannivalo.Text;
+                    mozgatannivalo = new Label();
                 }
                 
             }
-            else if (currentturn == 2)
+            else if (currentturn == 2 && moving == 0)
             {
                 if (playertwo.Piececount > 0 && kattintottLabel.Text == "")
                 {
