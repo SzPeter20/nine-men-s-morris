@@ -35,6 +35,7 @@ namespace Mills
         private void Game_Area_Load(object sender, EventArgs e)
         {
             generatemap();
+            
         }
 
         private void generatemap()
@@ -57,12 +58,16 @@ namespace Mills
                 currentturn = 1;
                 playerone.Color = Color.HotPink;
                 playertwo.Color = Color.CornflowerBlue;
+                player1_color_LBL.BackColor = playerone.Color;
+                player2_color_lbl.BackColor = playertwo.Color;
             }
             else
             {
                 currentturn = 2;
                 playertwo.Color = Color.HotPink;
                 playerone.Color = Color.CornflowerBlue;
+                player1_color_LBL.BackColor = playerone.Color;
+                player2_color_lbl.BackColor = playertwo.Color;
             }
         }
 
@@ -311,6 +316,44 @@ namespace Mills
         {
             playerone = new Player(player1, 9,0, Color.CornflowerBlue);
             playertwo = new Player(player2, 9,0, Color.HotPink);
+            player1_LBL.Text = $"Player1: {playerone.Name}";
+            player2_LBL.Text = $"Player2: {playertwo.Name}";
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // ReloadForm();
+        }
+
+        private void ReloadForm()
+        {
+            for (int i = 0; i < labelek.Count; i++)
+            {
+                labelek[i].BackColor = Color.Black;
+                labelek[i].Text = "";
+                labelek[i].ForeColor = Color.Black;
+                currentturn = 0;
+                moving = 0;
+                pontgeneration();
+                outerringgeneration();
+                midringgeneration();
+                innerringgeneration();
+                pictureBox1.SendToBack();
+
+                turns();
+            }
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Game_Area_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://hu.wikipedia.org/wiki/Malom_(j%C3%A1t%C3%A9k)");
         }
     }
 }
