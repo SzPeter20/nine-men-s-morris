@@ -17,10 +17,10 @@ namespace Mills
         static Player playertwo;
         static int currentturn = 0;
         static int labelsize = 17;
-        static List<Pont> empty = new List<Pont>();
-        static List<Pont> midring = new List<Pont>();
-        static List<Pont> outerring = new List<Pont>();
-        static List<Pont> innerring = new List<Pont>();
+        static List<Label> empty = new List<Label>();
+        static List<Label> midring = new List<Label>();
+        static List<Label> outerring = new List<Label>();
+        static List<Label> innerring = new List<Label>();
         static List<Label> labelek = new List<Label>();
         public Game_Area()
         {
@@ -39,7 +39,7 @@ namespace Mills
 
         private void generatemap()
         {
-            pontgeneration();
+            //pontgeneration();
             outerringgeneration();
             midringgeneration();
             innerringgeneration();
@@ -67,7 +67,7 @@ namespace Mills
         }
 
         private void pontgeneration()
-        {
+        {/*
             List<Pont> helper_szomszed = new List<Pont>();
             
             for (int i = 0; i < 8; i++)
@@ -86,7 +86,7 @@ namespace Mills
             neighbouring(helper_szomszed, innerring, midring);
             neighbouring(helper_szomszed, midring, outerring);
             neighbouring(helper_szomszed, midring, innerring);
-
+            */
         }
 
         private void neighbouring(List<Pont> help, List<Pont> van, List<Pont> masik)
@@ -146,7 +146,7 @@ namespace Mills
                     newlabel.Location = new Point(x, y - 50 - labelsize+2);
                 }
                 newlabel.BackColor = Color.Black;
-                newlabel.Name = "outer_" + i;
+                newlabel.Name = "inner_" + i;
                 newlabel.Text = "";
                 newlabel.AutoSize = false;
                 newlabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -156,7 +156,7 @@ namespace Mills
                     newlabel.BringToFront();
                 }
                 this.Controls.Add(newlabel);
-                labelek.Add(newlabel);
+                innerring.Add(newlabel);
             }
         }
 
@@ -192,7 +192,7 @@ namespace Mills
                     newlabel.Location = new Point(x, y - 130 - labelsize+2);
                 }
                 newlabel.BackColor = Color.Black;
-                newlabel.Name = "outer_" + i;
+                newlabel.Name = "mid_" + i;
                 newlabel.Text = "";
                 newlabel.AutoSize = false;
                 newlabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -202,7 +202,7 @@ namespace Mills
                     newlabel.BringToFront();
                 }
                 this.Controls.Add(newlabel);
-                labelek.Add(newlabel);
+                midring.Add(newlabel);
             }
         }
 
@@ -249,14 +249,17 @@ namespace Mills
                 }
                 
                 this.Controls.Add(newlabel);
-                labelek.Add(newlabel);
+                outerring.Add(newlabel);
             }
         }
 
         private void Kattintas(object sender, EventArgs e)
         {
-
-            Label mozgatannivalo=new Label();
+            string honnanring = "";
+            string hovaring = "";
+            int honnanint = 0;
+            int hovaint = 0;
+            
             Label kattintottLabel = sender as Label;
             if (currentturn==1)
             {
@@ -269,23 +272,30 @@ namespace Mills
                         kattintottLabel.ForeColor = playerone.Color;
                         playerone.Piececount--;
                         playerone.Onmappieces++;
+                        millquestionmark();
                         currentturn = 2;
                     }
 
                 }
-                else if (kattintottLabel.Text == "1"&&moving==0)
+                else if (kattintottLabel.Text == "1"&&moving==0 &&!(playerone.Piececount > 0))
                 {
                     moving = 1;
-                    mozgatannivalo = kattintottLabel;
-                    kattintottLabel.BorderStyle= BorderStyle.FixedSingle;
+                    honnanint =Convert.ToInt32( kattintottLabel.Name.Split('_')[1]);
+                    honnanring = kattintottLabel.Name.Split('_')[0];
+                    kattintottLabel.BackColor = Color.DarkMagenta;
+
                 }
                 if (moving==1&&kattintottLabel.Text=="")
                 {
-                    kattintottLabel.BackColor = mozgatannivalo.BackColor;
-                    kattintottLabel.ForeColor = mozgatannivalo.ForeColor;
-                    kattintottLabel.Text = mozgatannivalo.Text;
-                    mozgatannivalo = new Label();
+                    moving = 0;
+                    kattintottLabel.Text = "1";
+                    kattintottLabel.BackColor = playerone.Color;
+                    kattintottLabel.ForeColor = playerone.Color;
+                    millquestionmark();
+                    clearlabel(honnanint,honnanring);
+
                 }
+                currentturn = 2;
                 
             }
             else if (currentturn == 2 && moving == 0)
@@ -299,12 +309,35 @@ namespace Mills
                     playertwo.Onmappieces++;
                     currentturn = 1;
                 }
+                currentturn = 1;
             }
+        }
 
+        private void millquestionmark()
+        {
+            
+        }
 
-
-
-
+        private void clearlabel(int honnanint,string honnanring)
+        {
+            switch (honnanring)
+            {
+                case "outer":
+                    outerring[honnanint].BackColor = Color.Black;
+                    outerring[honnanint].ForeColor = Color.Black;
+                    outerring[honnanint].Text = "";
+                    break;
+                case "inner":
+                    innerring[honnanint].BackColor = Color.Black;
+                    innerring[honnanint].ForeColor = Color.Black;
+                    innerring[honnanint].Text = "";
+                    break;
+                case "mid":
+                    midring[honnanint].BackColor = Color.Black;
+                    midring[honnanint].ForeColor = Color.Black;
+                    midring[honnanint].Text = "";
+                    break;
+            }
         }
 
         public void Player_nevek(string player1,string player2)
