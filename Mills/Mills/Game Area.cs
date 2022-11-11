@@ -323,7 +323,7 @@ namespace Mills
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // ReloadForm();
+           ReloadForm();
         }
 
         private void ReloadForm()
@@ -335,13 +335,16 @@ namespace Mills
                 labelek[i].ForeColor = Color.Black;
                 currentturn = 0;
                 moving = 0;
-                pontgeneration();
-                outerringgeneration();
-                midringgeneration();
-                innerringgeneration();
-                pictureBox1.SendToBack();
-
-                turns();
+                
+                if (labelek[i].BackColor==Color.Black)
+                {
+                    pontgeneration();
+                    outerringgeneration();
+                    midringgeneration();
+                    innerringgeneration();
+                    turns();
+                }
+                
             }
             
         }
