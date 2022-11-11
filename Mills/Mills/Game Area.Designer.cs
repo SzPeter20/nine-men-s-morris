@@ -56,7 +56,7 @@ namespace Mills
             this.player1_LBL.Size = new System.Drawing.Size(45, 13);
             this.player1_LBL.TabIndex = 1;
             this.player1_LBL.Text = "Player1:";
-            this.player1_LBL.Click += new System.EventHandler(this.player1_LBL_Click);
+           
             // 
             // player2_LBL
             // 
