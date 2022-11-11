@@ -31,6 +31,10 @@ namespace Mills
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game_Area));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.player1_LBL = new System.Windows.Forms.Label();
+            this.player2_LBL = new System.Windows.Forms.Label();
+            this.player1_color_LBL = new System.Windows.Forms.Label();
+            this.player2_color_LBL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,11 +48,50 @@ namespace Mills
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // player1_LBL
+            // 
+            this.player1_LBL.AutoSize = true;
+            this.player1_LBL.Location = new System.Drawing.Point(12, 25);
+            this.player1_LBL.Name = "player1_LBL";
+            this.player1_LBL.Size = new System.Drawing.Size(45, 13);
+            this.player1_LBL.TabIndex = 1;
+            this.player1_LBL.Text = "Player1:";
+            this.player1_LBL.Click += new System.EventHandler(this.player1_LBL_Click);
+            // 
+            // player2_LBL
+            // 
+            this.player2_LBL.AutoSize = true;
+            this.player2_LBL.Location = new System.Drawing.Point(12, 54);
+            this.player2_LBL.Name = "player2_LBL";
+            this.player2_LBL.Size = new System.Drawing.Size(45, 13);
+            this.player2_LBL.TabIndex = 2;
+            this.player2_LBL.Text = "Player2:";
+            // 
+            // player1_color_LBL
+            // 
+            this.player1_color_LBL.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.player1_color_LBL.Location = new System.Drawing.Point(68, 21);
+            this.player1_color_LBL.Name = "player1_color_LBL";
+            this.player1_color_LBL.Size = new System.Drawing.Size(17, 17);
+            this.player1_color_LBL.TabIndex = 3;
+            // 
+            // player2_color_LBL
+            // 
+            this.player2_color_LBL.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.player2_color_LBL.Location = new System.Drawing.Point(68, 50);
+            this.player2_color_LBL.Name = "player2_color_LBL";
+            this.player2_color_LBL.Size = new System.Drawing.Size(17, 17);
+            this.player2_color_LBL.TabIndex = 4;
+            // 
             // Game_Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 559);
+            this.Controls.Add(this.player2_color_LBL);
+            this.Controls.Add(this.player1_color_LBL);
+            this.Controls.Add(this.player2_LBL);
+            this.Controls.Add(this.player1_LBL);
             this.Controls.Add(this.pictureBox1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -61,11 +104,16 @@ namespace Mills
             this.Load += new System.EventHandler(this.Game_Area_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label player1_LBL;
+        private System.Windows.Forms.Label player2_LBL;
+        private System.Windows.Forms.Label player1_color_LBL;
+        private System.Windows.Forms.Label player2_color_LBL;
     }
 }

@@ -57,12 +57,16 @@ namespace Mills
                 currentturn = 1;
                 playerone.Color = Color.HotPink;
                 playertwo.Color = Color.CornflowerBlue;
+                player1_color_LBL.BackColor = playerone.Color;
+                player2_color_LBL.BackColor = playertwo.Color;
             }
             else
             {
                 currentturn = 2;
                 playertwo.Color = Color.HotPink;
                 playerone.Color = Color.CornflowerBlue;
+                player1_color_LBL.BackColor = playerone.Color;
+                player2_color_LBL.BackColor = playertwo.Color;
             }
         }
 
@@ -344,6 +348,8 @@ namespace Mills
         {
             playerone = new Player(player1, 9,0, Color.CornflowerBlue);
             playertwo = new Player(player2, 9,0, Color.HotPink);
+            player1_LBL.Text = $"{playerone.Name}: ";
+            player2_LBL.Text = $"{playertwo.Name}: ";
         }
 
         private void Game_Area_HelpButtonClicked(object sender, CancelEventArgs e)
