@@ -56,6 +56,7 @@ namespace Mills
             this.MinimizeBox = false;
             this.Name = "Game_Area";
             this.Text = "Game_Area";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Game_Area_HelpButtonClicked);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_Area_FormClosing);
             this.Load += new System.EventHandler(this.Game_Area_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

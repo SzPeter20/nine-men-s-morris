@@ -20,3 +20,14 @@ D:\GIT\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.GenerateResource.cac
 D:\GIT\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.CoreCompileInputs.cache
 D:\GIT\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.exe
 D:\GIT\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.pdb
+D:\git zi\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.exe.config
+D:\git zi\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.exe
+D:\git zi\nine-men-s-morris\Mills\Mills\bin\Debug\Mills.pdb
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.AssemblyReference.cache
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Form1.resources
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Game_Area.resources
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.Properties.Resources.resources
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.GenerateResource.cache
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.csproj.CoreCompileInputs.cache
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.exe
+D:\git zi\nine-men-s-morris\Mills\Mills\obj\Debug\Mills.pdb

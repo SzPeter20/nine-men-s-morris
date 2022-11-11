@@ -345,5 +345,10 @@ namespace Mills
             playerone = new Player(player1, 9,0, Color.CornflowerBlue);
             playertwo = new Player(player2, 9,0, Color.HotPink);
         }
+
+        private void Game_Area_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://hu.wikipedia.org/wiki/Malom_(j%C3%A1t%C3%A9k)");
+        }
     }
 }
