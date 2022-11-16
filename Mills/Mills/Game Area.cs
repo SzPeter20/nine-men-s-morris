@@ -17,6 +17,9 @@ namespace Mills
         static Player playertwo;
         static int currentturn = 0;
         static int labelsize = 17;
+        static bool flies = false;
+        static bool hunting = false;
+        static List<Label> szomszedok = new List<Label>();
         static List<Label> empty = new List<Label>();
         static List<Label> midring = new List<Label>();
         static List<Label> outerring = new List<Label>();
@@ -259,50 +262,106 @@ namespace Mills
 
         private void Kattintas(object sender, EventArgs e)
         {
+            
             string honnanring = "";
-            string hovaring = "";
             int honnanint = 0;
-            int hovaint = 0;
+           
             
             Label kattintottLabel = sender as Label;
             if (currentturn==1)
             {
-                if (playerone.Piececount > 0 && moving == 0)
+                if (kattintottLabel.Text==""&&playerone.Piececount>0&&kattintottLabel.BackColor==Color.Black)
                 {
-                    if (kattintottLabel.Text == "")
+                    honnanring = kattintottLabel.Name.Split('_')[0];
+                    honnanint = Convert.ToInt32(kattintottLabel.Name.Split('_')[1]);
+                    addneighboors(honnanring, honnanint);
+                    playerone.Onmappieces-=-1;
+                    playerone.Piececount += -1;
+                    kattintottLabel.BackColor = playerone.Color;
+                    kattintottLabel.ForeColor = playerone.Color;
+                    kattintottLabel.Text = "1";
+                    millquestionmark(honnanring);
+                    currentturn = 2;
+                }
+                else if (kattintottLabel.Text=="1"&&kattintottLabel.BackColor==playerone.Color&&playerone.Piececount<1&&moving==0)
+                {
+                    moving = 1;
+                    honnanring= kattintottLabel.Name.Split('_')[0];
+                    honnanint = Convert.ToInt32(kattintottLabel.Name.Split('_')[1]);
+                    kattintottLabel.BackColor = Color.DarkMagenta;
+                    kattintottLabel.ForeColor = Color.DarkMagenta;
+                    addneighboors(honnanring,honnanint);
+                }
+                else if (kattintottLabel.Text==""&&kattintottLabel.BackColor==Color.Black&&moving==1&&flies&&playerone.Onmappieces==3)
+                {
+
+
+                    honnanring = kattintottLabel.Name.Split('_')[0];
+                    honnanint = Convert.ToInt32(kattintottLabel.Name.Split('_')[1]);
+                    addneighboors(honnanring, honnanint);
+                    clearlabel(honnanint,honnanring);
+                    kattintottLabel.BackColor = playerone.Color;
+                    kattintottLabel.ForeColor = playerone.Color;
+                    kattintottLabel.Text = "1";
+                    millquestionmark(honnanring);
+                    currentturn = 2;
+                }
+                else if (kattintottLabel.Text == "" && kattintottLabel.BackColor == Color.Black && moving == 1 && !flies&&szomszedok.Contains(kattintottLabel))
+                {
+                    honnanring = kattintottLabel.Name.Split('_')[0];
+                    honnanint = Convert.ToInt32(kattintottLabel.Name.Split('_')[1]);
+                    addneighboors(honnanring, honnanint);
+                    clearlabel(honnanint, honnanring);
+                    kattintottLabel.BackColor = playerone.Color;
+                    kattintottLabel.ForeColor = playerone.Color;
+                    kattintottLabel.Text = "1";
+                    millquestionmark(honnanring);
+                    szomszedok.Clear();
+                    currentturn = 2;
+                }
+
+
+
+
+                {
+                    /*
+                    if (playerone.Piececount > 0 && moving == 0)
                     {
+                        if (kattintottLabel.Text == "")
+                        {
+                            kattintottLabel.Text = "1";
+                            kattintottLabel.BackColor = playerone.Color;
+                            kattintottLabel.ForeColor = playerone.Color;
+                            playerone.Piececount--;
+                            playerone.Onmappieces++;
+                            millquestionmark(honnanring);
+                            currentturn = 2;
+                        }
+
+                    }
+                    else if (kattintottLabel.Text == "1"&&moving==0 &&!(playerone.Piececount > 0))
+                    {
+                        moving = 1;
+                        honnanint =Convert.ToInt32( kattintottLabel.Name.Split('_')[1]);
+                        honnanring = kattintottLabel.Name.Split('_')[0];
+                        kattintottLabel.BackColor = Color.DarkMagenta;
+
+                    }
+                    if (moving==1&&kattintottLabel.Text=="")
+                    {
+                        moving = 0;
                         kattintottLabel.Text = "1";
                         kattintottLabel.BackColor = playerone.Color;
                         kattintottLabel.ForeColor = playerone.Color;
-                        playerone.Piececount--;
-                        playerone.Onmappieces++;
-                        millquestionmark();
-                        currentturn = 2;
+                        millquestionmark(honnanring);
+                        clearlabel(honnanint,honnanring);
+
                     }
-
+                    currentturn = 2;
+                    */
                 }
-                else if (kattintottLabel.Text == "1"&&moving==0 &&!(playerone.Piececount > 0))
-                {
-                    moving = 1;
-                    honnanint =Convert.ToInt32( kattintottLabel.Name.Split('_')[1]);
-                    honnanring = kattintottLabel.Name.Split('_')[0];
-                    kattintottLabel.BackColor = Color.DarkMagenta;
-
-                }
-                if (moving==1&&kattintottLabel.Text=="")
-                {
-                    moving = 0;
-                    kattintottLabel.Text = "1";
-                    kattintottLabel.BackColor = playerone.Color;
-                    kattintottLabel.ForeColor = playerone.Color;
-                    millquestionmark();
-                    clearlabel(honnanint,honnanring);
-
-                }
-                currentturn = 2;
-                
             }
-            else if (currentturn == 2 && moving == 0)
+            else if (currentturn == 2)
             {
                 if (playertwo.Piececount > 0 && kattintottLabel.Text == "")
                 {
@@ -317,9 +376,160 @@ namespace Mills
             }
         }
 
-        private void millquestionmark()
+        private void addneighboors(string honnanring,int honnanint)
         {
+            szomszedok.Clear();
+
+            if (honnanint==1|| honnanint == 3|| honnanint == 5|| honnanint == 7)
+            {
+                switch (honnanring)
+                {
+                    case "outer":
+                        szomszedok.Add(outerring[honnanint + 1]);
+                        szomszedok.Add(outerring[honnanint - 1]);
+                        szomszedok.Add(midring[honnanint]);
+                        break;
+                    case "inner":
+                        szomszedok.Add(innerring[honnanint + 1]);
+                        szomszedok.Add(innerring[honnanint - 1]);
+                        szomszedok.Add(midring[honnanint]);
+
+                        break;
+                    case "mid":
+                        szomszedok.Add(midring[honnanint + 1]);
+                        szomszedok.Add(midring[honnanint - 1]);
+                        szomszedok.Add(outerring[honnanint]);
+                        szomszedok.Add(innerring[honnanint]);
+                        break;
+                }
+            }
+            else
+            {
+                switch (honnanring)
+                {
+                    case "outer":
+                        szomszedok.Add(outerring[honnanint + 1]);
+                        szomszedok.Add(outerring[honnanint - 1]);
+                        break;
+                    case "inner":
+                        szomszedok.Add(innerring[honnanint + 1]);
+                        szomszedok.Add(innerring[honnanint - 1]);
+
+                        break;
+                    case "mid":
+                        szomszedok.Add(midring[honnanint + 1]);
+                        szomszedok.Add(midring[honnanint - 1]);
+                        break;
+                }
+            }
+
             
+        }
+
+        private void millquestionmark(string ring)
+        {
+            if (midring[1].Text=="1"&& outerring[1].Text == "1"&& innerring[1].Text == "1")
+            {
+                hunting = true;
+            }
+            else
+            {
+                switch (ring)
+                {
+                    case "outer":
+                        if (outerring[0].Text == "1" && outerring[1].Text == "1" && outerring[2].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[2].Text == "1" && outerring[3].Text == "1" && outerring[4].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[4].Text == "1" && outerring[5].Text == "1" && outerring[6].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[6].Text == "1" && outerring[7].Text == "1" && outerring[0].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        break;
+                    case "inner":
+                        if (innerring[0].Text == "1" && innerring[1].Text == "1" && innerring[2].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[2].Text == "1" && outerring[3].Text == "1" && outerring[4].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[4].Text == "1" && outerring[5].Text == "1" && outerring[6].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[6].Text == "1" && outerring[7].Text == "1" && outerring[0].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        break;
+                    case "mid":
+                        if (outerring[0].Text == "1" && outerring[1].Text == "1" && outerring[2].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[2].Text == "1" && outerring[3].Text == "1" && outerring[4].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[4].Text == "1" && outerring[5].Text == "1" && outerring[6].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        else if (outerring[6].Text == "1" && outerring[7].Text == "1" && outerring[0].Text == "1")
+                        {
+                            hunting = true;
+                        }
+                        break;
+                }
+            }
+            
+
+
+            victoryquestion();
+        }
+
+        private void victoryquestion()
+        {
+            if (playerone.Onmappieces<3)
+            {
+                string message = "hurá hurá hurá jaj de nagyon jó, hogy "+playertwo.Name+" nyert. akartok újra játszani?";
+                string title = "jéj  nyertél";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    Application.Restart();
+                }
+            }
+            else if (playertwo.Onmappieces < 3)
+            {
+                string message = "hurá hurá hurá jaj de nagyon jó, hogy " + playerone.Name + " nyert. akartok újra játszani?";
+                string title = "jéj  nyertél";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    Application.Restart();
+                }
+            }
         }
 
         private void clearlabel(int honnanint,string honnanring)
@@ -344,12 +554,13 @@ namespace Mills
             }
         }
 
-        public void Player_nevek(string player1,string player2)
+        public void Player_nevek(string player1,string player2,bool flyenabled)
         {
             playerone = new Player(player1, 9,0, Color.CornflowerBlue);
             playertwo = new Player(player2, 9,0, Color.HotPink);
             player1_LBL.Text = $"{playerone.Name}: ";
             player2_LBL.Text = $"{playertwo.Name}: ";
+            flies = flyenabled;
         }
 
         private void Game_Area_HelpButtonClicked(object sender, CancelEventArgs e)

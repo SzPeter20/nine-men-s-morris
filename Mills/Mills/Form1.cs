@@ -67,7 +67,7 @@ namespace Mills
 
             Game_Area uj = new Game_Area();
             this.Hide();
-            uj.Player_nevek(player_1_name, player_2_name);
+            uj.Player_nevek(player_1_name, player_2_name,enabled_flying);
             uj.Show();
         }
     }
