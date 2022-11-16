@@ -277,7 +277,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
-                    Player1_pieces.Text = $"{playerone.Name} korongjainak száma: {playerone.Piececount}";
+                    lbl_Player1_pieces.Text = $"{playerone.Name} korongjainak száma: {playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
@@ -379,7 +379,7 @@ namespace Mills
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
-                    Player2_pieces.Text = $"{playertwo.Name} korongjainak száma: {playertwo.Piececount}";
+                    lbl_Player2_pieces.Text = $"{playertwo.Piececount}";
                     currentturn = 1;
                 }
                 currentturn = 1;
