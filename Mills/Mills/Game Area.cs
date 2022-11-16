@@ -323,7 +323,6 @@ namespace Mills
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
                     millquestionmark(honnanring);
-                    szomszedok.Clear();
                     currentturn = 2;
                 }
                 else if (hunting&&kattintottLabel.BackColor==playertwo.Color&&kattintottLabel.Text=="2")
@@ -334,47 +333,6 @@ namespace Mills
                     playertwo.Onmappieces -= +1;
                     currentturn = 2;
                     victoryquestion();
-                }
-
-
-
-
-                {
-                    /*
-                    if (playerone.Piececount > 0 && moving == 0)
-                    {
-                        if (kattintottLabel.Text == "")
-                        {
-                            kattintottLabel.Text = "1";
-                            kattintottLabel.BackColor = playerone.Color;
-                            kattintottLabel.ForeColor = playerone.Color;
-                            playerone.Piececount--;
-                            playerone.Onmappieces++;
-                            millquestionmark(honnanring);
-                            currentturn = 2;
-                        }
-
-                    }
-                    else if (kattintottLabel.Text == "1"&&moving==0 &&!(playerone.Piececount > 0))
-                    {
-                        moving = 1;
-                        honnanint =Convert.ToInt32( kattintottLabel.Name.Split('_')[1]);
-                        honnanring = kattintottLabel.Name.Split('_')[0];
-                        kattintottLabel.BackColor = Color.DarkMagenta;
-
-                    }
-                    if (moving==1&&kattintottLabel.Text=="")
-                    {
-                        moving = 0;
-                        kattintottLabel.Text = "1";
-                        kattintottLabel.BackColor = playerone.Color;
-                        kattintottLabel.ForeColor = playerone.Color;
-                        millquestionmark(honnanring);
-                        clearlabel(clearint,clearring);
-
-                    }
-                    currentturn = 2;
-                    */
                 }
             }
             else if (currentturn == 2)
@@ -389,7 +347,7 @@ namespace Mills
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
-                    Player2_pieces.Text = $"{playertwo.Name} korongjainak száma: {playertwo.Piececount}";
+                    lbl_Player2_pieces.Text = $"{playertwo.Name} korongjainak száma: {playertwo.Piececount}";
                     millquestionmark(honnanring);
                     currentturn = 1;
                 }
@@ -423,11 +381,11 @@ namespace Mills
                     honnanring = kattintottLabel.Name.Split('_')[0];
                     honnanint = Convert.ToInt32(kattintottLabel.Name.Split('_')[1]);
                     addneighboors(honnanring, honnanint);
+                    clearlabel(clearint, clearring);
                     kattintottLabel.BackColor = playertwo.Color;
                     kattintottLabel.ForeColor = playertwo.Color;
                     kattintottLabel.Text = "2";
                     millquestionmark(honnanring);
-                    szomszedok.Clear();
                     currentturn = 1;
                 }
                 else if (hunting && kattintottLabel.BackColor == playerone.Color && kattintottLabel.Text == "1")
