@@ -277,7 +277,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
-                    lbl_Player1_pieces.Text = $"{playerone.Name} korogjainak száma: {playerone.Piececount}";
+                    Player1_pieces.Text = $"{playerone.Name} korongjainak száma: {playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
@@ -537,10 +537,7 @@ namespace Mills
                 }
                 else
                 {
-                    string message = "hurá hurá hurá jaj de nagyon jó, hogy " + playerone.Name + " nyert. akartok újra játszani?";
-                    string title = "jéj  nyertél";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show(message, title, buttons);
+                    
                     Application.Restart();
                 }
             }
