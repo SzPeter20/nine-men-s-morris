@@ -277,6 +277,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
+                    Player1_pieces.Text = $"{playerone.Name} korongjainak száma: {playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
@@ -370,7 +371,7 @@ namespace Mills
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
-                    Player2_pieces.Text = $"{playertwo.Name} korogjainak száma: {playertwo.Piececount}";
+                    Player2_pieces.Text = $"{playertwo.Name} korongjainak száma: {playertwo.Piececount}";
                     currentturn = 1;
                 }
                 currentturn = 1;
@@ -460,33 +461,33 @@ namespace Mills
                         {
                             hunting = true;
                         }
-                        else if (outerring[2].Text == "1" && outerring[3].Text == "1" && outerring[4].Text == "1")
+                        else if (innerring[2].Text == "1" && innerring[3].Text == "1" && innerring[4].Text == "1")
                         {
                             hunting = true;
                         }
-                        else if (outerring[4].Text == "1" && outerring[5].Text == "1" && outerring[6].Text == "1")
+                        else if (innerring[4].Text == "1" && innerring[5].Text == "1" && innerring[6].Text == "1")
                         {
                             hunting = true;
                         }
-                        else if (outerring[6].Text == "1" && outerring[7].Text == "1" && outerring[0].Text == "1")
+                        else if (innerring[6].Text == "1" && innerring[7].Text == "1" && innerring[0].Text == "1")
                         {
                             hunting = true;
                         }
                         break;
                     case "mid":
-                        if (outerring[0].Text == "1" && outerring[1].Text == "1" && outerring[2].Text == "1")
+                        if (midring[0].Text == "1" && midring[1].Text == "1" && midring[2].Text == "1")
                         {
                             hunting = true;
                         }
-                        else if (outerring[2].Text == "1" && outerring[3].Text == "1" && outerring[4].Text == "1")
+                        else if (midring[2].Text == "1" && midring[3].Text == "1" && midring[4].Text == "1")
                         {
                             hunting = true;
                         }
-                        else if (outerring[4].Text == "1" && outerring[5].Text == "1" && outerring[6].Text == "1")
+                        else if (midring[4].Text == "1" && midring[5].Text == "1" && midring[6].Text == "1")
                         {
                             hunting = true;
                         }
-                        else if (outerring[6].Text == "1" && outerring[7].Text == "1" && outerring[0].Text == "1")
+                        else if (midring[6].Text == "1" && midring[7].Text == "1" && midring[0].Text == "1")
                         {
                             hunting = true;
                         }
@@ -528,6 +529,10 @@ namespace Mills
                 }
                 else
                 {
+                    string message = "hurá hurá hurá jaj de nagyon jó, hogy " + playerone.Name + " nyert. akartok újra játszani?";
+                    string title = "jéj  nyertél";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
                     Application.Restart();
                 }
             }
