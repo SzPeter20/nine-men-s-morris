@@ -113,7 +113,9 @@ namespace Mills
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(768, 598);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(768, 598);
             this.Name = "Game_Area";
             this.Text = "Game_Area";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Game_Area_HelpButtonClicked);
