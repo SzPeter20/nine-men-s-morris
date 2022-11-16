@@ -277,7 +277,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
-                    lbl_Player1_pieces.Text = $"{playerone.Name} korogjainak száma: {playerone.Piececount}";
+                    lbl_Player1_pieces.Text = $"{playerone.Name} korongjainak száma: {playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
@@ -327,6 +327,7 @@ namespace Mills
                     kattintottLabel.ForeColor = Color.Black;
                     playertwo.Onmappieces -= +1;
                     currentturn = 2;
+                    victoryquestion();
                 }
 
 
@@ -372,17 +373,17 @@ namespace Mills
             }
             else if (currentturn == 2)
             {
-                if (playertwo.Piececount > 0 && kattintottLabel.Text == "")
+                if (playertwo.Piececount > 0 && kattintottLabel.Text == "" && kattintottLabel.BackColor == Color.Black)
                 {
                     kattintottLabel.Text = "2";
                     kattintottLabel.BackColor = playertwo.Color;
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
-                    Player2_pieces.Text = $"{playertwo.Name} korogjainak száma: {playertwo.Piececount}";
+                    Player2_pieces.Text = $"{playertwo.Name} korongjainak száma: {playertwo.Piececount}";
                     currentturn = 1;
                 }
-                currentturn = 1;
+                
             }
         }
 
@@ -390,11 +391,12 @@ namespace Mills
         {
             szomszedok.Clear();
 
-            if (honnanint==1|| honnanint == 3|| honnanint == 5|| honnanint == 7)
+            if (honnanint==1|| honnanint == 3|| honnanint == 5)
             {
                 switch (honnanring)
                 {
                     case "outer":
+                        
                         szomszedok.Add(outerring[honnanint + 1]);
                         szomszedok.Add(outerring[honnanint - 1]);
                         szomszedok.Add(midring[honnanint]);
@@ -418,17 +420,60 @@ namespace Mills
                 switch (honnanring)
                 {
                     case "outer":
-                        szomszedok.Add(outerring[honnanint + 1]);
-                        szomszedok.Add(outerring[honnanint - 1]);
+                        if (honnanint==0)
+                        {
+                            szomszedok.Add(outerring[honnanint + 1]);
+                            szomszedok.Add(outerring[7]);
+                        }
+                        else if (honnanint == 7)
+                        {
+                            szomszedok.Add(outerring[honnanint - 1]);
+                            szomszedok.Add(outerring[0]);
+                            szomszedok.Add(midring[honnanint]);
+                        }
+                        else
+                        {
+                            szomszedok.Add(outerring[honnanint + 1]);
+                            szomszedok.Add(outerring[honnanint - 1]);
+                        }
                         break;
                     case "inner":
-                        szomszedok.Add(innerring[honnanint + 1]);
-                        szomszedok.Add(innerring[honnanint - 1]);
+                        if (honnanint == 0)
+                        {
+                            szomszedok.Add(innerring[honnanint + 1]);
+                            szomszedok.Add(innerring[7]);
+                        }
+                        else if (honnanint == 7)
+                        {
+                            szomszedok.Add(innerring[honnanint - 1]);
+                            szomszedok.Add(innerring[0]);
+                            szomszedok.Add(midring[honnanint]);
+                        }
+                        else
+                        {
+                            szomszedok.Add(innerring[honnanint + 1]);
+                            szomszedok.Add(innerring[honnanint - 1]);
+                        }
 
                         break;
                     case "mid":
-                        szomszedok.Add(midring[honnanint + 1]);
-                        szomszedok.Add(midring[honnanint - 1]);
+                        if (honnanint == 0)
+                        {
+                            szomszedok.Add(midring[honnanint + 1]);
+                            szomszedok.Add(midring[7]);
+                        }
+                        else if (honnanint == 7)
+                        {
+                            szomszedok.Add(midring[honnanint - 1]);
+                            szomszedok.Add(midring[0]);
+                            szomszedok.Add(outerring[honnanint]);
+                            szomszedok.Add(innerring[honnanint]);
+                        }
+                        else
+                        {
+                            szomszedok.Add(midring[honnanint + 1]);
+                            szomszedok.Add(midring[honnanint - 1]);
+                        }
                         break;
                 }
             }
@@ -505,7 +550,7 @@ namespace Mills
             
 
 
-            victoryquestion();
+            
         }
 
         private void victoryquestion()
