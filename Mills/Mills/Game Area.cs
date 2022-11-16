@@ -370,6 +370,7 @@ namespace Mills
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
+                    Player2_pieces.Text = $"{playertwo.Name} korogjainak száma: {playertwo.Piececount}";
                     currentturn = 1;
                 }
                 currentturn = 1;
@@ -566,6 +567,11 @@ namespace Mills
         private void Game_Area_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             System.Diagnostics.Process.Start("https://hu.wikipedia.org/wiki/Malom_(j%C3%A1t%C3%A9k)");
+        }
+
+        private void player2_LBL_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

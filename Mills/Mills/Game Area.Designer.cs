@@ -35,7 +35,11 @@ namespace Mills
             this.player2_LBL = new System.Windows.Forms.Label();
             this.player1_color_LBL = new System.Windows.Forms.Label();
             this.player2_color_LBL = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Player1_pieces = new System.Windows.Forms.Label();
+            this.Player2_pieces = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -51,58 +55,94 @@ namespace Mills
             // player1_LBL
             // 
             this.player1_LBL.AutoSize = true;
-            this.player1_LBL.Location = new System.Drawing.Point(12, 25);
+            this.player1_LBL.BackColor = System.Drawing.Color.Wheat;
+            this.player1_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player1_LBL.Location = new System.Drawing.Point(34, 69);
             this.player1_LBL.Name = "player1_LBL";
-            this.player1_LBL.Size = new System.Drawing.Size(45, 13);
+            this.player1_LBL.Size = new System.Drawing.Size(65, 20);
             this.player1_LBL.TabIndex = 1;
             this.player1_LBL.Text = "Player1:";
-           
             // 
             // player2_LBL
             // 
             this.player2_LBL.AutoSize = true;
-            this.player2_LBL.Location = new System.Drawing.Point(12, 54);
+            this.player2_LBL.BackColor = System.Drawing.Color.Wheat;
+            this.player2_LBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.player2_LBL.Location = new System.Drawing.Point(34, 101);
             this.player2_LBL.Name = "player2_LBL";
-            this.player2_LBL.Size = new System.Drawing.Size(45, 13);
+            this.player2_LBL.Size = new System.Drawing.Size(65, 20);
             this.player2_LBL.TabIndex = 2;
             this.player2_LBL.Text = "Player2:";
+            this.player2_LBL.Click += new System.EventHandler(this.player2_LBL_Click);
             // 
             // player1_color_LBL
             // 
             this.player1_color_LBL.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.player1_color_LBL.Location = new System.Drawing.Point(68, 21);
+            this.player1_color_LBL.Location = new System.Drawing.Point(126, 69);
             this.player1_color_LBL.Name = "player1_color_LBL";
-            this.player1_color_LBL.Size = new System.Drawing.Size(17, 17);
+            this.player1_color_LBL.Size = new System.Drawing.Size(20, 20);
             this.player1_color_LBL.TabIndex = 3;
             // 
             // player2_color_LBL
             // 
             this.player2_color_LBL.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.player2_color_LBL.Location = new System.Drawing.Point(68, 50);
+            this.player2_color_LBL.Location = new System.Drawing.Point(126, 106);
             this.player2_color_LBL.Name = "player2_color_LBL";
-            this.player2_color_LBL.Size = new System.Drawing.Size(17, 17);
+            this.player2_color_LBL.Size = new System.Drawing.Size(20, 20);
             this.player2_color_LBL.TabIndex = 4;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(191, 153);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // Player1_pieces
+            // 
+            this.Player1_pieces.AutoSize = true;
+            this.Player1_pieces.Location = new System.Drawing.Point(13, 181);
+            this.Player1_pieces.Name = "Player1_pieces";
+            this.Player1_pieces.Size = new System.Drawing.Size(0, 13);
+            this.Player1_pieces.TabIndex = 6;
+            // 
+            // Player2_pieces
+            // 
+            this.Player2_pieces.AutoSize = true;
+            this.Player2_pieces.Location = new System.Drawing.Point(13, 204);
+            this.Player2_pieces.Name = "Player2_pieces";
+            this.Player2_pieces.Size = new System.Drawing.Size(0, 13);
+            this.Player2_pieces.TabIndex = 7;
             // 
             // Game_Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 559);
+            this.Controls.Add(this.Player2_pieces);
+            this.Controls.Add(this.Player1_pieces);
             this.Controls.Add(this.player2_color_LBL);
             this.Controls.Add(this.player1_color_LBL);
             this.Controls.Add(this.player2_LBL);
             this.Controls.Add(this.player1_LBL);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(768, 598);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(768, 598);
             this.Name = "Game_Area";
             this.Text = "Game_Area";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.Game_Area_HelpButtonClicked);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_Area_FormClosing);
             this.Load += new System.EventHandler(this.Game_Area_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +155,8 @@ namespace Mills
         private System.Windows.Forms.Label player2_LBL;
         private System.Windows.Forms.Label player1_color_LBL;
         private System.Windows.Forms.Label player2_color_LBL;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label Player1_pieces;
+        private System.Windows.Forms.Label Player2_pieces;
     }
 }
