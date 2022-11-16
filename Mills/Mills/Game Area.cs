@@ -277,6 +277,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
+                    lbl_Player1_pieces.Text = $"{playerone.Name} korogjainak száma: {playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
@@ -317,6 +318,14 @@ namespace Mills
                     kattintottLabel.Text = "1";
                     millquestionmark(honnanring);
                     szomszedok.Clear();
+                    currentturn = 2;
+                }
+                else if (hunting&&kattintottLabel.BackColor==playertwo.Color&&kattintottLabel.Text=="2")
+                {
+                    kattintottLabel.Text = "";
+                    kattintottLabel.BackColor = Color.Black;
+                    kattintottLabel.ForeColor = Color.Black;
+                    playertwo.Onmappieces -= +1;
                     currentturn = 2;
                 }
 
