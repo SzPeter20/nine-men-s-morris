@@ -276,6 +276,7 @@ namespace Mills
                         kattintottLabel.ForeColor = playerone.Color;
                         playerone.Piececount--;
                         playerone.Onmappieces++;
+                        Player1_pieces.Text = $"{playerone.Name} korogjainak száma: {playerone.Piececount}";
                         millquestionmark();
                         currentturn = 2;
                     }
@@ -311,6 +312,7 @@ namespace Mills
                     kattintottLabel.ForeColor = playertwo.Color;
                     playertwo.Piececount--;
                     playertwo.Onmappieces++;
+                    Player2_pieces.Text = $"{playertwo.Name} korogjainak száma: {playertwo.Piececount}";
                     currentturn = 1;
                 }
                 currentturn = 1;

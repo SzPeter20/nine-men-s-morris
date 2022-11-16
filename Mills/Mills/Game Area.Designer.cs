@@ -36,6 +36,8 @@ namespace Mills
             this.player1_color_LBL = new System.Windows.Forms.Label();
             this.player2_color_LBL = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Player1_pieces = new System.Windows.Forms.Label();
+            this.Player2_pieces = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +101,29 @@ namespace Mills
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
+            // Player1_pieces
+            // 
+            this.Player1_pieces.AutoSize = true;
+            this.Player1_pieces.Location = new System.Drawing.Point(13, 181);
+            this.Player1_pieces.Name = "Player1_pieces";
+            this.Player1_pieces.Size = new System.Drawing.Size(0, 13);
+            this.Player1_pieces.TabIndex = 6;
+            // 
+            // Player2_pieces
+            // 
+            this.Player2_pieces.AutoSize = true;
+            this.Player2_pieces.Location = new System.Drawing.Point(13, 204);
+            this.Player2_pieces.Name = "Player2_pieces";
+            this.Player2_pieces.Size = new System.Drawing.Size(0, 13);
+            this.Player2_pieces.TabIndex = 7;
+            // 
             // Game_Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 559);
+            this.Controls.Add(this.Player2_pieces);
+            this.Controls.Add(this.Player1_pieces);
             this.Controls.Add(this.player2_color_LBL);
             this.Controls.Add(this.player1_color_LBL);
             this.Controls.Add(this.player2_LBL);
@@ -136,5 +156,7 @@ namespace Mills
         private System.Windows.Forms.Label player1_color_LBL;
         private System.Windows.Forms.Label player2_color_LBL;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label Player1_pieces;
+        private System.Windows.Forms.Label Player2_pieces;
     }
 }
