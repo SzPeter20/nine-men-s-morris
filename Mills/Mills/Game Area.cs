@@ -279,7 +279,7 @@ namespace Mills
                     addneighboors(honnanring, honnanint);
                     playerone.Onmappieces-=-1;
                     playerone.Piececount += -1;
-                    lbl_Player1_pieces.Text = $"{playerone.Name} korogjainak száma: {playerone.Piececount}";
+                    lbl_Player1_pieces.Text = $"{playerone.Piececount}";
                     kattintottLabel.BackColor = playerone.Color;
                     kattintottLabel.ForeColor = playerone.Color;
                     kattintottLabel.Text = "1";
