@@ -356,5 +356,10 @@ namespace Mills
         {
             System.Diagnostics.Process.Start("https://hu.wikipedia.org/wiki/Malom_(j%C3%A1t%C3%A9k)");
         }
+
+        private void player2_LBL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
