@@ -104,7 +104,7 @@ namespace Mills
             // lbl_Player2_pieces
             // 
             this.lbl_Player2_pieces.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lbl_Player2_pieces.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_Player2_pieces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_Player2_pieces.Location = new System.Drawing.Point(146, 84);
             this.lbl_Player2_pieces.Name = "lbl_Player2_pieces";
             this.lbl_Player2_pieces.Size = new System.Drawing.Size(20, 20);
@@ -113,7 +113,7 @@ namespace Mills
             // lbl_Player1_pieces
             // 
             this.lbl_Player1_pieces.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lbl_Player1_pieces.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_Player1_pieces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_Player1_pieces.Location = new System.Drawing.Point(146, 47);
             this.lbl_Player1_pieces.Name = "lbl_Player1_pieces";
             this.lbl_Player1_pieces.Size = new System.Drawing.Size(20, 20);
